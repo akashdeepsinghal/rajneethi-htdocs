@@ -25,6 +25,7 @@
 						var map_data = [];
 						var latlong = [];
 						for (var i = 0; i < data.length; i++) {
+							getCastesAndPercentages(data[i])
 							latlong[i] = data[i].local_booth_panchayat_name;
 							$scope.booths.push(data[i].booth_panchayat_name);
 							// try {
@@ -40,9 +41,9 @@
 						}
 						console.log('map_data')
 						console.log(map_data)
-						initialize(map_data);
+						initializeMap(map_data);
 					 } else {
-						initialize();
+						initializeMap();
 					 }
 				 })
 				 
@@ -85,7 +86,33 @@
 
 					// ],
 
-		function initialize(map_data) {
+		function getCastesAndPercentages(booth) {
+			var data = booth.caste_equation_percentage.split("_");
+			var d = [];
+			data.forEach(function(item, index) {
+				if (isOdd(index)) {
+					d.push(parseInt(item))
+				} else {
+					d.push(item)
+				}
+			});
+			result = chunk(d, 2);
+			console.log(result);
+		}
+
+		function isOdd(n) {
+			return n % 2 != 0;
+		}
+
+		function chunk(arr, chunkSize) {
+			var R = [];
+			for (var i = 0, len = arr.length; i < len; i += chunkSize) {
+				R.push(arr.slice(i, i + chunkSize));
+			}
+			return R;
+		}
+
+		function initializeMap(map_data) {
 			var map;
 			var bounds = new google.maps.LatLngBounds();
 			var mapOptions = {
