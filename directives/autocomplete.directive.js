@@ -95,6 +95,8 @@ app.directive('autocomplete', function() {
 
     }],
     link: function(scope, element, attrs){
+      console.log('attrs');
+      console.log(attrs);
       setTimeout(function() {
         scope.initLock = false;
         scope.$apply();
@@ -104,7 +106,7 @@ app.directive('autocomplete', function() {
 
       // Default atts
       scope.attrs = {
-        "placeholder": "start typing...",
+        "placeholder": attrs['placeholder'] || "start typing...",
         "class": "",
         "id": "",
         "inputclass": "",
