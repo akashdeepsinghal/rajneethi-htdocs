@@ -1,0 +1,67 @@
+﻿
+<admin-Nav></admin-Nav>
+<div class="container gridpages addPages">
+
+    <!--<div class="row">
+        <div class="col-md-6">
+            <span style="height:30px ;font-size: 18px;">Rajneethi <small> User management </small></span>
+        </div>
+
+        <div class="col-md-6" style="padding-right: 0px;float:right">
+            <input type="text" id="search" style="border:1px solid; width:250px; height:34px;border-radius:5px; padding:5px;float:right" ng-keyup="Search()" placeholder="Search" />
+            <a href="#adduser/-1"><button class="btn btn-success" style="float:right;margin-right:10px;"><i class="fa fa-plus mr-5"></i> Add User</button></a>
+
+
+
+            <a href="#manageProject/1">
+                <button class="btn btn-success" style="float:right;margin-right:10px;">
+                    <i class="fa fa-plus mr-5"></i> Demo User
+                </button>
+            </a>
+
+
+            
+        </div>
+
+    </div>-->
+
+    <div class="row" style="margin-top:50px;">
+
+     <div class="col-md-5">
+         <label class="text-center" for="aclients" style="margin-left:20px;">Available Booths</label>
+         
+         
+         <select  multiple ng-model="available" ng-options="client as client.booth_panchayat_name for client in availableclients" style="width:96%;height:300px;float:right"></select>
+         <!--<div>Selected Clients: {{selectedclients}}</div>
+    <div>Available Clients: {{availableclients}}</div>
+    <div>Selected: {{selected}}</div>
+    <div>Available: {{available}}</div>-->
+
+         </div>
+
+        <div class="col-md-2 text-center">
+            <input style="margin-top:120px;min-width:150px" class="btn btn-info" id="moveright" type="button" value="Add Booth" ng-click="moveItem(available[0], availableclients,selectedclients)" />
+            <!--<input style="margin-top:20px; min-width:150px" class="btn btn-info" id="moverightall" type="button" value="Add All Clients" ng-click="moveAll(availableclients,selectedclients)" />-->
+            <input style="margin-top:20px; min-width:150px" class="btn btn-info" id="move left" type="button" value="Remove Booth" ng-click="moveItem(selected[0], selectedclients,availableclients)" />
+            <!--<input style="margin-top:20px; min-width:150px" class="btn btn-info" id="moveleftall" type="button" value="Remove All Clients" ng-click="moveAll(selectedclients,availableclients)" />-->
+            </div>
+       
+
+        <div class="col-md-5">
+
+            <label class="text-center" for="sclients">Selected Booths</label>
+            <select  multiple ng-model="selected" ng-options="client as client.booth_panchayat_name for client in selectedclients" style="width:96%;height: 300px;"></select>
+       
+            </div>
+
+    </div>
+
+    <input style="margin-top:40px; min-width:300px;margin-left: 415px;" class="btn btn-info" id="moveleftall" type="button" value="Save" ng-click="Saveselectedproject(selectedclients)" />
+
+</div>
+
+
+
+
+
+

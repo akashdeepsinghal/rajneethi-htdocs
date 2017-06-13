@@ -1,0 +1,58 @@
+
+<client-Nav></client-Nav>
+<div class="container text-center">
+    <div class="row text-center">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default" style="border-color: rgba(91, 192, 222, 0.71);margin-top:30px;box-shadow: 0px 0px 26px 0px rgba(136, 136, 136, 0.7)">
+                <div class="panel-body">
+                    <h3 style="margin-top:0px;">Fill the bellow form to Add Grievience</h3>
+                    <p style="color:#c3c0c0">We are happy that you used Rajneethi and we hope you enjoyed our services</p>
+                    <div>
+                        <input id="Project Id" name="name" placeholder="Enter Project Id" ng-model="grievienceDetails.projectID"  style="margin-bottom:10px; margin-bottom:10px;" type="hidden" class="form-control" />
+                        <input id="name" name="name" placeholder="Enter Project Title" ng-model="grievienceDetails.Title" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required />
+                        <select style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" ng-model="grievienceDetails.Type" ng-change="GetSubCategory(grievienceDetails.Type)" name="category">
+                            <option value="" selected="selected">-- Select Project Type --</option>
+                            <option value="{{cate.ProjectType}}" ng-repeat="cate in ProjectType" ng-selected="cate.ProjectType==grievienceDetails.Type" >{{cate.ProjectType}}</option>
+                        </select>
+                        <select style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" ng-model="grievienceDetails.SubType"  name="subcategory">
+                            <option value="" selected="selected">-- Select SubProject Type --</option>
+                            <option value="{{subcate.ProjectSubType}}" ng-repeat="subcate in SubCategory" ng-selected="subcate.ProjectSubType==grievienceDetails.SubType">{{subcate.ProjectSubType}}</option>
+                        </select>
+                        
+                        <input id="name" name="name" placeholder="Name" ng-model="grievienceDetails.Name" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required />
+                        <input id="name" name="name" placeholder="Voter ID" ng-model="grievienceDetails.VoterID" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required >
+                        <select style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" ng-model="grievienceDetails.Status" name="Status">
+                            <option value="" selected="selected">-- Select Status of Grievance  --</option>
+                            <option value="{{status}}" ng-repeat="status in Status" ng-selected="status==grievienceDetails.ProjectSubType">{{status}}</option>
+                        </select>
+                        
+                        <select style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" ng-model="grievienceDetails.Priority" name="Status">
+                            <option value="" selected="selected">--Select Priority --</option>
+                            <option value="{{agency}}" ng-repeat="agency in Agency" ng-selected="agency==grievienceDetails.Priority">{{agency}}</option>
+                        </select>
+                        <input id="name" name="name" placeholder="Remarks" ng-model="grievienceDetails.Remarks" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required>
+                        <input id="name" name="name" placeholder="SLA Time" ng-model="grievienceDetails.SLATime" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required>
+                        <input id="name" name="name" placeholder="Rewards" ng-model="grievienceDetails.Rewards" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required>
+                        <datepicker date-format="yyyy-MM-dd">
+                            <input type="text" class="form-control" id="date" ng-model="grievienceDetails.Date" placeholder="YYYY-MM-DD" value="July, 16th, 2009">
+                        </datepicker>
+                                                                      
+                    </div>
+                    <br/>
+                    <br />
+                   
+
+                    <button class="btn btn-success pull-right" ng-show='!buttonshow' ng-click="UpdateData()">Update</button>
+                    <button class="btn btn-success pull-right" ng-show='buttonshow' ng-click="InsertData()">Done</button>
+                    <button class="btn btn-primary pull-right" ng-click="reload()" style="margin-right:10px;width:113px;">Reset</button>
+                    <button class="btn btn-danger pull-right" ng-show="isEdit" style="margin-right:10px;width:113px;" ng-click="Removebeneficiary()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+>
+

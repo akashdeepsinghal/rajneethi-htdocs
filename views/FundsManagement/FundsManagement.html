@@ -1,0 +1,119 @@
+<!--<nav class="navbar navbar-default" style="background:#1675b9;color:#fff;border-radius:0px;border:none;">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"></a>
+        </div>
+        <ul class="nav navbar-nav navbar">
+            <li><a href="#clientprofile" style="color:#fff">Home</a></li>
+            <li><a href="#form" style="color:#fff"> Send sms</a></li>
+            <li><a href="#voicesms" style="color:#fff"> Voice sms</a></li>
+            <li><a href="#report" style="color:#fff">Report</a></li>
+
+        </ul>
+
+</nav>-->
+<client-Nav></client-Nav>
+<div class="container text-center">
+    <div class="row text-center">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default" style="border-color: rgba(91, 192, 222, 0.71);margin-top:30px;box-shadow: 0px 0px 26px 0px rgba(136, 136, 136, 0.7)">
+                <div class="panel-body">
+                    <h3 style="margin-top:0px;">Fill the bellow form to Add FundsManagement</h3>
+                    <p style="color:#c3c0c0">We are happy that you used Rajneethi and we hope you enjoyed our services</p>
+                    <div>
+                        <input id="Project Id" name="name" placeholder="Enter Project Id" ng-model="fundsDetails.projectID" style="margin-bottom:10px; margin-bottom:10px;" type="hidden" class="form-control" required />
+                        <input id="name" name="name" placeholder="Enter Project Title" ng-model="fundsDetails.ProjectTitle" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required />
+                        <select style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" ng-model="fundsDetails.ProjectType" ng-change="GetSubCategory(fundsDetails.ProjectType)" name="category">
+                            <option value="" selected="selected">-- Select Project Type --</option>
+                            <option value="{{cate.id}}" ng-repeat="cate in ProjectType" ng-selected="cate.id==fundsDetails.ProjectType" >{{cate.ProjectType}}</option>
+                        </select>
+                        <select style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" ng-model="fundsDetails.ProjectSubType"  name="subcategory">
+                            <option value="" selected="selected">-- Select SubProject Type --</option>
+                            <option value="{{subcate.id}}" ng-repeat="subcate in SubCategory" ng-selected="subcate.id==fundsDetails.ProjectSubType">{{subcate.ProjectSubType}}</option>
+                        </select>
+                        <!--<input id="name" name="name" placeholder="Enter Project Type" ng-model="fundsDetails" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required />
+                        <input id="name" name="name" placeholder="Enter Project Sub Type" ng-model="fundsDetails" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required />-->
+                        <!--<input id="name" name="name" placeholder="Start Date" ng-model="fundsDetails.StartDate" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required />-->
+                        <datepicker date-format="yyyy-MM-dd" style="margin-bottom:10px; margin-bottom:10px;">
+                            <input type="text" class="form-control" id="date" ng-model="fundsDetails.StartDate" placeholder="Start Date" value="July, 16th, 2009">
+                        </datepicker>
+
+                        <datepicker date-format="yyyy-MM-dd" style="margin-bottom:10px; margin-bottom:10px;">
+                            <input type="text" class="form-control" id="date" ng-model="fundsDetails.EndDate" placeholder="End Date" value="July, 16th, 2009">
+                        </datepicker>
+                        <!--<input id="name" name="name" placeholder="End Date" ng-model="fundsDetails.EndDate" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required />-->
+                        <input id="name" name="name" placeholder="Estimated Cost" ng-model="fundsDetails.EstimatedCost" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required />
+                        <input id="name" name="name" placeholder="Expenditure" ng-model="fundsDetails.Expenditure" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required >
+                        <select style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" ng-model="fundsDetails.Status" name="Status">
+                            <option value="" selected="selected">-- Select Status --</option>
+                            <option value="{{status}}" ng-repeat="status in Status" ng-selected="status==fundsDetails.ProjectSubType">{{status}}</option>
+                        </select>
+                        <!--<input id="name" name="name" placeholder="Status" ng-model="fundsDetails.Status" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required >-->
+                        <!--<input id="name" name="name" placeholder="Agency" ng-model="fundsDetails.Agency" style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" required>-->
+                        <select style="margin-bottom:10px; margin-bottom:10px;" type="text" class="form-control" ng-model="fundsDetails.Agency" name="Status">
+                            <option value="" selected="selected">-- Select Agency --</option>
+                            <option value="{{agency}}" ng-repeat="agency in Agency" ng-selected="agency==fundsDetails.Agency">{{agency}}</option>
+                        </select>
+                        
+
+
+
+
+
+                        <!--<input id="name" name="name" placeholder="Date" style="margin-bottom:10px;" type="text" class="form-control" required style="margin-bottom:10px;">-->
+                        <!--<div class="col-md-6 col-sm-6 col-xs-12">
+                            <datepicker date-format="MM/dd/yyyy">
+                                <input type="text" class="form-control" id="expiry" placeholder="MM/DD/YY">
+                            </datepicker>
+
+                        </div>-->
+                        <!--<div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>-->
+                        <!--<datepicker>
+                            <input ng-model="date" type="text" />
+                        </datepicker>-->
+                        <!--<textarea class="form-control counted" id="message" name="message" placeholder="Type in your message" rows="5" style="margin-bottom:10px;" ng-keydown="charactercount($event)"></textarea>-->
+                        <!--<div>
+                                                    <h6 ng-show="length!=0" style="text-align: right;margin-right:10px">
+                                                        <span ng-show="length!=0" style="text-align: left;margin-left:10px">{{Messagelength}} characters </span>
+                                                        {{length}} Messages
+                                                    </h6>
+                        </div>-->
+                        <!--<div class="form-group">
+                            <input type="file" id="filecontrol" name="a" class="file" style="display: none;">
+                            <div class="input-group col-xs-12">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-upload"></i></span>
+                                <input type="text" class="form-control input-md" disabled placeholder="Uplode csv file">
+                                <span class="input-group-btn">
+                                    <button class="browse btn btn-primary input-md" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+                                </span>
+                            </div>
+                        </div>-->
+
+                    </div>
+
+                    <!--<textarea class="form-control counted" id="mobile_no" name="mobile" placeholder="Mobile No" rows="3" style="margin-bottom:10px;"></textarea>-->
+
+                    <button class="btn btn-success pull-right" ng-show='!buttonshow' ng-click="UpdateData()">Update</button>
+                    <button class="btn btn-success pull-right" ng-show='buttonshow' ng-click="InsertData()">Done</button>
+                    <a href="#AllfundsManagent">
+                        <button class="btn btn-primary pull-right" style="margin-right:10px;width:113px;">Cancel</button>
+                    </a>
+                    <button class="btn btn-warning pull-right" ng-show='buttonshow' ng-click="reload()" style="margin-right:10px;width:113px;">Reset</button>
+                    <!--<h6 class="pull-left" id="counter">320 characters remaining</h6>-->
+
+                    <button class="btn btn-danger pull-right" style="margin-right:10px;width:113px;" ng-show="isEdit" ng-click="Removebeneficiary()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+>
+

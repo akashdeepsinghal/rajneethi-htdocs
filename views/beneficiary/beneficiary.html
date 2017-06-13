@@ -1,0 +1,74 @@
+<!--<div ui-grid="gridOptions" ui-grid-pagination></div>-->
+<client-Nav></client-Nav>
+<div class="container gridpages">
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="row" style="margin-bottom:20px;text-align:center">
+                <span style="height:30px ;font-size: 18px;padding-left:15px;">Rajneethi Beneficiary Management </span>
+            </div>
+            <div class="">
+                <div classs="row" id="clientGridRow" style="font-size: 18px;    padding: 10px 0px;    text-align: center;    font-size: 14px;background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(1, #ffffff));">
+                    Beneficiary Title
+                </div>
+
+                <div classs="row clientGridRow" ng-repeat="rec in gridData" style="background-color:{{getBackGroundColor($index)}};font-size: 18px;    padding: 10px 0px;    text-align: center;    font-size: 14px;color:white;">
+                    <a href="#/addbeneficiary/{{rec.id}}" style="color:white;">
+                        {{rec.Title}}
+                    </a>
+                </div>
+            </div>
+
+
+
+            <div class="row" style="margin-top:50px;">
+
+
+
+
+                <div id="container">
+
+                </div>
+
+            </div>
+
+        </div>
+
+       
+
+        <div class="col-md-4">
+            <!--<input type="text" id="search" style="border:1px solid; width:250px; height:34px;border-radius:5px; padding:5px;float:right" ng-keyup="Search()" placeholder="Search" />-->
+            <a class="button" href="#addbeneficiary/-1">
+            <button class="btn btn-success" style="float:right;margin-right:10px;">
+                <i class="fa fa-plus mr-5"></i> Add Beneficiary</button></a>
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+       
+
+        <div class="col-md-6" style="padding-right: 0px;float:right">
+            
+            <!--<button class="btn btn-primary " ng-click="EmailSend()"><i class="fa fa-envelope mr-5"></i> Email</button>
+        <button class="btn btn-info" ng-click="export('pdf')"><i class="fa fa-file-pdf-o"></i> PDF</button>-->
+            </div>
+
+        </div>
+
+    <!--<div class="row" style="margin-top:20px;">
+
+        
+        
+
+                <div ui-grid="gridOptions" ui-grid-pagination style="height:400px;"></div>
+
+
+
+    </div>-->
+
+
+
+</div>

@@ -1,0 +1,52 @@
+
+<admin-Nav></admin-Nav>
+<div class="container gridpages">
+
+    <div class="row">
+        <div class="col-md-6" style="padding-left: 0px;">
+            <span style="height:30px ;font-size: 18px;">Rajneethi User Management </span>
+        </div>
+
+        <div class="col-md-6" style="padding-right: 0px;float:right">
+            <input type="text" id="search" style="border:1px solid; width:250px; height:34px;border-radius:5px; padding:5px;float:right" ng-keyup="Search()" placeholder="Search" />
+           
+             <a href="#adduser/-1"><button class="btn btn-success" style="float:right;margin-right:10px;"><i class="fa fa-plus mr-5"></i> Add User</button></a>
+
+            <!--<a><button class="btn btn-danger" ng-click="DownloadVoterData()" style="float:right;margin-right:10px;"><i class="fa fa-download mr-5"></i> Download Voter Data</button></a>-->
+
+
+            <!--<a href="#manageProject/1">
+            <button class="btn btn-success" style="float:right;margin-right:10px;">
+                <i class="fa fa-plus mr-5"></i> Demo User</button></a>
+
+            <a href="#manageBooth/1">
+                <button class="btn btn-success" style="float:right;margin-right:10px;">
+                    <i class="fa fa-plus mr-5"></i> Demo User Booth
+                </button>
+            </a>-->
+            <!--<button class="btn btn-primary " ng-click="EmailSend()"><i class="fa fa-envelope mr-5"></i> Email</button>
+            <button class="btn btn-info" ng-click="export('pdf')"><i class="fa fa-file-pdf-o"></i> PDF</button>-->
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+
+
+
+
+        <div ui-grid="gridOptions" ui-grid-pagination style="height:400px;"></div>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
