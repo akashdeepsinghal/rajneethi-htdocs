@@ -24,7 +24,7 @@
                 legend: {
                     margin: {
                         top: 5,
-                        right: 35,
+                        right: 20,
                         bottom: 5,
                         left: 0
                     }
@@ -32,36 +32,36 @@
             }
         };
 
-        $scope.pieData = [
-            {
-                key: "One",
-                y: 5
-            },
-            {
-                key: "Two",
-                y: 2
-            },
-            {
-                key: "Three",
-                y: 9
-            },
-            {
-                key: "Four",
-                y: 7
-            },
-            {
-                key: "Five",
-                y: 4
-            },
-            {
-                key: "Six",
-                y: 3
-            },
-            {
-                key: "Seven",
-                y: .5
-            }
-        ];
+        // $scope.pieData = [
+        //     {
+        //         key: "One",
+        //         y: 5
+        //     },
+        //     {
+        //         key: "Two",
+        //         y: 2
+        //     },
+        //     {
+        //         key: "Three",
+        //         y: 9
+        //     },
+        //     {
+        //         key: "Four",
+        //         y: 7
+        //     },
+        //     {
+        //         key: "Five",
+        //         y: 4
+        //     },
+        //     {
+        //         key: "Six",
+        //         y: 3
+        //     },
+        //     {
+        //         key: "Seven",
+        //         y: .5
+        //     }
+        // ];
 
 
 
@@ -84,8 +84,8 @@
 					 	getAllCastes(data);
 						var map_data = [];
 						var latlong = [];
+						showPieChart(data[0]);
 						for (var i = 0; i < data.length; i++) {
-							getCastesAndPercentages(data[i])
 							latlong[i] = data[i].local_booth_panchayat_name;
 							$scope.booths.push(data[i].booth_panchayat_name);
 							// try {
@@ -155,6 +155,15 @@
 			});
 			console.log($scope.castes);
 		}
+
+		function showPieChart(booth) {
+			console.log('getCastesAndPercentages(booth)');
+			console.log('booth')
+			console.log(booth)
+			console.log(getCastesAndPercentages(booth));
+			$scope.pieData = getCastesAndPercentages(booth);
+		}
+
 		function getCastesAndPercentages(booth) {
 			var data = booth.caste_equation_percentage.split("_");
 			var d = [];
@@ -165,8 +174,10 @@
 					d.push(item)
 				}
 			});
-			result = chunk(d, 2);
-			console.log(result);
+			console.log('d to be chunked')
+			console.log(d)
+			result = object_chunk(d, 2);
+			return result;
 		}
 
 		function isOdd(n) {
@@ -174,11 +185,29 @@
 		}
 
 		function chunk(arr, chunkSize) {
+			chunkSize = chunkSize || 2;
 			var R = [];
 			for (var i = 0, len = arr.length; i < len; i += chunkSize) {
 				R.push(arr.slice(i, i + chunkSize));
 			}
 			return R;
+		}
+
+		function object_chunk(arr) {
+			pieData = [];
+			var chunkedArray = chunk(arr);
+			console.log('chunkedArray');
+			console.log(chunkedArray);
+
+			for (var i = 0; i < chunkedArray.length; i ++) {
+				pieData[i] = {
+					key: chunkedArray[i][0],
+					y: chunkedArray[i][1]
+				}
+			}
+			console.log('pieData');
+			console.log(pieData);
+			return(pieData);
 		}
 
 		function initializeMap(map_data) {
