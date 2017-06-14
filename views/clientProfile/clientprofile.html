@@ -4,8 +4,17 @@
 			<div class="container-white" style="padding: 5px;">
 					<div class="col-md-5">
 						<div>
-							<autocomplete class="col-md-9" ng-model="selectedBooth" data="booths" on-type="updateMovies" placeholder="Choose booth"></autocomplete >
-							<button class="btn btn-primary col-md-3"  ng-click="showchart(selectedBooth)" style="height:40px;">Show Chart</button>
+							<autocomplete class="col-md-12" ng-model="selectedBooth" data="booths" placeholder="Choose booth"></autocomplete >
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div>
+							<autocomplete class="col-md-12" ng-model="selectedCaste" data="castes" placeholder="Choose caste"></autocomplete >
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div>
+							<button class="btn btn-primary"  ng-click="showchart(selectedBooth)" style="margin-top: 3px;">Filter</button>
 						</div>
 					</div>
 			</div>
