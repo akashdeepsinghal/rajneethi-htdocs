@@ -2,6 +2,7 @@
 
  app.controller('clientProfileCtrl', function ($scope) {
 		$scope.booths=[];
+		$scope.castes = [];
 		 $scope.projectId1 = window.localStorage.getItem("USERid"); 
 		 var reqObj = {
 				 PRCID: "GETPROJECTCONSTITUTEIDBYUSERID",
@@ -22,6 +23,7 @@
 				 // getConstituencyMap(55, function (data) {
 				 getConstituencyMap($scope.projectId, function (data) {
 					 if (data && data.length) {
+					 	getAllCastes(data);
 						var map_data = [];
 						var latlong = [];
 						for (var i = 0; i < data.length; i++) {
@@ -86,6 +88,15 @@
 
 					// ],
 
+		function getAllCastes(booths) {
+			var data = booths[0].caste_equation_percentage.split("_");
+			data.forEach(function(item, index) {
+				if (!parseInt(item)) {
+					$scope.castes.push(item);
+				}
+			});
+			console.log($scope.castes);
+		}
 		function getCastesAndPercentages(booth) {
 			var data = booth.caste_equation_percentage.split("_");
 			var d = [];
