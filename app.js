@@ -1,6 +1,6 @@
 /// <reference path="views/AllFundsManagement/AllFundsManagement.html" />
 
-var app = angular.module('rajneethi', ['ngRoute', 'ngFileUpload', 'ui.grid', 'ui.grid.pagination','720kb.datepicker']);
+var app = angular.module('rajneethi', ['ngRoute', 'ngFileUpload', 'ui.grid', 'ui.grid.pagination','720kb.datepicker', 'nvd3']);
 
 app.config(function($routeProvider) {
     $routeProvider
