@@ -1,29 +1,20 @@
 {
   "name": "rajneethi",
+  "version": "1.0.2",
   "description": "rajneethi",
-  "main": "index.js",
-  "authors": [
-    "palani"
-  ],
-  "license": "ISC",
-  "homepage": "",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "author": "Akash Deep Singhal",
+  "license": "MIT",
   "dependencies": {
-    "angular": "^1.6.1",
-    "ng-file-upload": "^12.2.13",
-    "highcharts": "^5.0.9",
+    "angular": "^1.6.4",
     "angular-nvd3": "^1.0.9",
-    "sweetalert": "^1.1.3",
-    "angular-datepicker": "^2.0.3",
-    "angular-route": "^1.6.4"
+    "angular-route": "latest",
+    "angular-ui-router": "latest",
+    "jquery": "latest",
+    "materialize": "latest",
+    "angucomplete-alt": "^3.0.0",
+    "angular-cookies": "^1.6.4"
   },
   "resolutions": {
-    "angular": "^1.6.1"
+    "angular": "^1.6.4"
   }
 }

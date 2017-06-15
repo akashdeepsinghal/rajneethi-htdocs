@@ -9,8 +9,6 @@ var port = process.env.PORT || 4000;
 var morgan = require('morgan');
 var errorhandler = require('errorhandler');
 var ejs	= require('ejs');
-var routes = require('./routes');
-
 
 // CONFIGURATION
 // ==============================================

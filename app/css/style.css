@@ -1,0 +1,125 @@
+.new-customer-form {
+  height: 170%;
+}
+.menubar {
+  margin-top: -1%;
+}
+.login-form {
+  margin-top: 10%;
+}
+.sidebar {
+  position: fixed;
+  display: block;
+  background-color: #e0e0e0 ;
+  height: 100%;
+  width: 20%;
+}
+.button-group {
+  margin-top: 10%;
+}
+.form-label {
+  font-size: 200%;
+}
+.main-area {
+  margin-left: 0%;
+}
+.new-customer-form {
+  height: 170%;
+}
+.menubar {
+  margin-top: -1%;
+}
+.login-form {
+  margin-top: 10%;
+}
+.login-panel {
+  width: 500px;
+}
+.sidebar {
+  position: fixed;
+  display: block;
+  background-color: #ffffff ;
+  height: 100%;
+  width: 20%;
+}
+.button-group {
+  margin-top: 10%;
+}
+.form-label {
+  font-size: 200%;
+}
+.groups-table {
+  height: 30%;
+}
+.selected-groups {
+  height: 20%;
+}
+.selected-list {
+  height: 10%;
+}
+.control-button {
+  height: 50px;
+  width: 50px;
+}
+.control-button .icon {
+  margin-left: 25%;
+}
+.additional-details {
+  height: 70%;
+}
+.generate-reciept {
+  height: 75%;
+}
+.validation-label {
+  color: #d32f2f;
+}
+i.material-icons {
+  line-height: inherit;
+  height: inherit;
+  vertical-align: middle;
+}
+.activator {
+  cursor: pointer;
+}
+.select2-results .select2-selected {
+  display: none;
+}
+.bold {
+  font-weight: bold;
+}
+.font-24 {
+  font-size: 24px !important;
+}
+.font-20 {
+  font-size: 20px !important;
+}
+.font-16 {
+  font-size: 16px !important;
+}
+.font-12 {
+  font-size: 12px !important;
+}
+.font-8 {
+  font-size: 8px !important;
+}
+.height-400 {
+  height: 400px !important;
+}
+.card.medium {
+  height: 360px;
+}
+
+.input-field input:disabled {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.tooltipped {
+  cursor: default;
+}
+.tooltipped:hover {
+  color: #d81b60;
+}
+
+.angucomplete-dropdown {
+  width: 100% !important;
+}
