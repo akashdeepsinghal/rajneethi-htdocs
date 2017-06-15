@@ -21,7 +21,7 @@ rajneethiApp.config(function ($stateProvider, $urlRouterProvider, $locationProvi
 //Login Page
 		.state('login', {
 			url: '/login',
-			templateUrl: '/views/session/index.html',
+			templateUrl: '/views/session/login.html',
 			controller: 'LoginCtrl',
 		})
 //Home

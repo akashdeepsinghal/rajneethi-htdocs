@@ -129,10 +129,10 @@ i.material-icons {
 	background-image: url('../images/hero.png');
 }
 
-.navbar-fixed {
+/*.navbar-fixed {
 	position: absolute;
 	top: 0;
-}
+}*/
 
 .iris {
 	background-image: url("../images/backdrop.png");
