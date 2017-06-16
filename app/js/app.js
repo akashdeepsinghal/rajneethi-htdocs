@@ -18,17 +18,23 @@ rajneethiApp.config(function ($stateProvider, $urlRouterProvider, $locationProvi
 
 
 // ********************ACL Dashboard***************************
+//Home
+		.state('home', {
+			url: '/',
+			templateUrl: '/views/home/index.html',
+			controller: 'HomeCtrl'
+		})
 //Login Page
 		.state('login', {
 			url: '/login',
 			templateUrl: '/views/session/login.html',
 			controller: 'LoginCtrl',
 		})
-//Home
-		.state('home', {
-			url: '/home',
-			templateUrl: '/views/home/index.html',
-			controller: 'HomeCtrl'
+//Dashboard
+		.state('dashboard', {
+			url: '/dashboard',
+			templateUrl: '/views/home/dashboard.html',
+			controller: 'DashboardCtrl'
 		})
 
 //Rest Of the State Definitions Go here

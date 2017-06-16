@@ -7,3 +7,6 @@ angular.module('rajneethiApp')
 .controller('LoginCtrl',['$scope', '$rootScope', 'customHttp', '$location', '$cookies', function ($scope, $root, customHttp, $location, $cookies){
 	console.log('LoginCtrl');
 }])
+.controller('DashboardCtrl',['$scope', '$rootScope', 'customHttp', '$location', '$cookies', function ($scope, $root, customHttp, $location, $cookies){
+	console.log('DashboardCtrl');
+}])
