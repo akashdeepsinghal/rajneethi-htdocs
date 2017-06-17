@@ -22,7 +22,7 @@ angular.module('rajneethiApp')
 			console.log('data');
 			console.log(data);
 			if(data){
-				$scope.booths = [];
+				$scope.booths = data;
 				if (data.length) {
 				 	// getAllCastes(data);
 					var map_data = [];
@@ -31,14 +31,8 @@ angular.module('rajneethiApp')
 					console.log('data.length');
 					console.log(data.length);
 					for (var i = 0; i < data.length; i++) {
-						console.log('i')
-						console.log(i)
-						console.log('i < ' + data.length)
-						console.log(i < data.length)
-						$scope.booths.push(data[i].booth_panchayat_name);
+						// $scope.booths.push(data[i].booth_panchayat_name);
 						latlong[i] = data[i].local_booth_panchayat_name;
-						console.log('latlong[i] with i:' + i);
-						console.log(latlong[i]);
 						if (latlong[i].charAt(0) == '@') {
 							var latlong_new = latlong[i].split('@')[1].split(',');
 						}
