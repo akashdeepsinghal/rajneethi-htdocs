@@ -1,38 +1,34 @@
 <div ng-include="'views/home/header.html'"></div>
 
 <section>
-	<div>
-		<div class=" circles">
-			<div class="row" style="height: 50px; background-color: #f8f8f8;">
-				<div class="container-white" style="padding: 5px;">
-						<div class="col s5">
-							<div>
-								<autocomplete class="col s12" ng-model="selectedBooth" data="booths" placeholder="Choose booth"></autocomplete >
-							</div>
-						</div>
-						<div class="col s5">
-							<div>
-								<autocomplete class="col s12" ng-model="selectedCaste" data="castes" placeholder="Choose caste"></autocomplete >
-							</div>
-						</div>
-						<div class="col s2">
-							<div>
-								<button class="btn btn-primary"  ng-click="showchart(selectedBooth)" style="margin-top: 3px;">Filter</button>
-							</div>
-						</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col s8">
-					<div id="default" style="width: 100%; height: 650px">
-						
-					</div>
-				</div>
-				<div class="col s4 sidebar">
+	<div class="row" style="margin-bottom: 0; height: 50px; background-color: #f8f8f8;">
+		<div>
+				<div class="col s5">
 					<div>
-						<nvd3 options="pieOptions" data="pieData"></nvd3>
+						<autocomplete class="col s12" ng-model="selectedBooth" data="booths" placeholder="Choose booth"></autocomplete >
 					</div>
 				</div>
+				<div class="col s5">
+					<div>
+						<autocomplete class="col s12" ng-model="selectedCaste" data="castes" placeholder="Choose caste"></autocomplete >
+					</div>
+				</div>
+				<div class="col s2">
+					<div>
+						<button class="btn btn-primary"  ng-click="showchart(selectedBooth)" style="margin-top: 3px;">Filter</button>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s8" style="padding: 0">
+			<div id="default" style="width: 100%; height: 80vh">
+				
+			</div>
+		</div>
+		<div class="col s4">
+			<div>
+				<nvd3 options="pieOptions" data="pieData"></nvd3>
 			</div>
 		</div>
 	</div>

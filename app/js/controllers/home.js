@@ -17,30 +17,37 @@ angular.module('rajneethiApp')
 	loadConstituencyMap();
 	function loadConstituencyMap() {
 		var url = '/constituencymap/' + $scope.projectId;
-		customHttp.get(url, function (response) {
+		customHttp.get(url, function (data) {
 			$scope.loaded = true;
-			console.log('response');
-			console.log(response);
-			if(response){
-				$scope.booths = response;
-				if (response.length) {
-				 	getAllCastes(data);
+			console.log('data');
+			console.log(data);
+			if(data){
+				$scope.booths = [];
+				if (data.length) {
+				 	// getAllCastes(data);
 					var map_data = [];
 					var latlong = [];
-					showPieChart(data[0]);
+					// showPieChart(data[0]);
+					console.log('data.length');
+					console.log(data.length);
 					for (var i = 0; i < data.length; i++) {
-						latlong[i] = data[i].local_booth_panchayat_name;
+						console.log('i')
+						console.log(i)
+						console.log('i < ' + data.length)
+						console.log(i < data.length)
 						$scope.booths.push(data[i].booth_panchayat_name);
-						// try {
-							if (latlong[i].charAt(0) == '@') {
-								var latlong_new = latlong[i].split('@')[1].split(',');
-							}
-							map_data[i] = {
-								latitude: Number(latlong_new[0]),
-								longitude: Number(latlong_new[1]),
-								booth_name: data[i].booth_panchayat_name,
-								caste_percentage: data[i].caste_equation_percentage
-							}
+						latlong[i] = data[i].local_booth_panchayat_name;
+						console.log('latlong[i] with i:' + i);
+						console.log(latlong[i]);
+						if (latlong[i].charAt(0) == '@') {
+							var latlong_new = latlong[i].split('@')[1].split(',');
+						}
+						map_data[i] = {
+							latitude: Number(latlong_new[0]),
+							longitude: Number(latlong_new[1]),
+							booth_name: data[i].booth_panchayat_name,
+							caste_percentage: data[i].caste_equation_percentage
+						}
 					}
 					console.log('map_data')
 					console.log(map_data)
