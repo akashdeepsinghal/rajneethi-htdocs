@@ -7,8 +7,8 @@ angular.module('rajneethiApp')
 .controller('LoginCtrl',['$scope', '$rootScope', 'customHttp', '$location', '$cookies', function ($scope, $root, customHttp, $location, $cookies){
 	console.log('LoginCtrl');
 
-	if (window.localStorage.getItem('username')) {
-		$cookies.put('username', window.localStorage.getItem('username'));
+	if ($cookies.get('username')) {
+		$root.username = $cookies.get('username');
 		$location.path('/dashboard');
 	}
 
@@ -49,10 +49,15 @@ angular.module('rajneethiApp')
 	}
 }])
 .controller('DashboardCtrl',['$scope', '$rootScope', 'customHttp', '$location', '$cookies', function ($scope, $root, customHttp, $location, $cookies){
+
 	console.log('DashboardCtrl');
 	console.log($cookies)
 	console.log('$cookies.get')
 	console.log($cookies.get('username'))
+
+	// if (!window.localStorage.getItem('username')) {
+	// 	$location.path('/login');
+	// }
 	// if ($cookies.get('username')) {
 	// 	if (!window.localStorage.getItem('username')) {
 	// 		window.localStorage.setItem('username', $cookies.get('username'))
@@ -60,7 +65,7 @@ angular.module('rajneethiApp')
 	// }
 
 
-	if (!$cookies.get('username') && !window.localStorage.getItem('username')) {
+	if (!$cookies.get('username')) {
 		// if (!window.localStorage.getItem('username')) {
 		// 	window.localStorage.setItem('username', $cookies.get('username'))
 		// }
@@ -70,9 +75,7 @@ angular.module('rajneethiApp')
 
 
 
-	if (!window.localStorage.getItem('username')) {
-		$location.path('/login');
-	}
+
 	$scope.loaded = false;
 	$scope.valid_data = false;
 	$scope.projectId = 58;

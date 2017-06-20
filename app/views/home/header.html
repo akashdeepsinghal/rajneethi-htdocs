@@ -15,14 +15,16 @@
 					<li class="navTab careersTab"><a href="/careers">Careers</a></li>
 					<li class="navTab servicesTab"><a href="/services">Services</a></li>
 					<li class="navTab contactTab"><a href="/contact">Contact Us</a></li>
-					<li class="navTab loginTab"><a href="/login">Login</a></li>
+					<li class="navTab loginTab" ng-show="!username"><a href="/login">Login</a></li>
+					<li class="navTab loginTab" ng-show="username" ng-click="logout()"><a href="#">Logout</a></li>
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
 					<li class="navTab aboutTab"><a href="/about">About Us</a></li>
 					<li class="navTab careersTab"><a href="/careers">Careers</a></li>
 					<li class="navTab servicesTab"><a href="/services">Services</a></li>
 					<li class="navTab contactTab"><a href="/contact">Contact Us</a></li>
-					<li class="navTab loginTab"><a href="/login">Login</a></li>
+					<li class="navTab loginTab" ng-show="!username"><a href="/login">Login</a></li>
+					<li class="navTab loginTab" ng-show="username"><a href="/logout">Logout</a></li>
 				</ul>
 			</div>
 		</nav>

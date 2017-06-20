@@ -24,6 +24,8 @@ rajneethiApp.config(function ($stateProvider, $urlRouterProvider, $locationProvi
 		templateUrl: '/views/session/login.html',
 		controller: 'LoginCtrl',
 	})
+
+	// /logout
 //Dashboard
 	.state('dashboard', {
 		url: '/dashboard',
