@@ -153,3 +153,11 @@ i.material-icons {
 .bg-orange {
 	background-color: #f57c00;
 }
+
+nav ul a {
+	padding: 0 24px;
+}
+
+nav .brand-logo {
+	padding: 0 15px;
+}

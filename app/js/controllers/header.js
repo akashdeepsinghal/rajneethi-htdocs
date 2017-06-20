@@ -5,6 +5,8 @@ angular.module('rajneethiApp')
 	console.log('$cookies.username')
 	console.log($cookies.username)
 
+	docReady.run();
+
 	var cookies = {
 		username : $cookies.get('username')
 	}

@@ -44,7 +44,7 @@ angular.module('rajneethiApp')
 			$('.tooltipped').tooltip({delay: 50});
 			$('.collapsible').collapsible();
 			$('.modal').modal();
-			$(".dropdown-button").dropdown();
+			$(".dropdown-button").dropdown({ hover: true });
 			$('select').material_select();
 		});
 	}    
