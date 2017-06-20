@@ -7,6 +7,11 @@ angular.module('rajneethiApp')
 .controller('LoginCtrl',['$scope', '$rootScope', 'customHttp', '$location', '$cookies', function ($scope, $root, customHttp, $location, $cookies){
 	console.log('LoginCtrl');
 
+	if (window.localStorage.getItem('username')) {
+		$cookies.put('username', window.localStorage.getItem('username'));
+		$location.path('/dashboard');
+	}
+
 	$scope.login = function () {
 		console.log('$scope.username')
 		console.log($scope.username)
@@ -32,6 +37,8 @@ angular.module('rajneethiApp')
 			if(response){
 				if (response.token) {
 					response.message = 'User Logged in successfully';
+					window.localStorage.setItem('username', response.username);
+					$cookies.put('username', response.username);
 					$location.path('/dashboard');
 				}
 				Materialize.toast(response.message, 2000);
@@ -43,6 +50,29 @@ angular.module('rajneethiApp')
 }])
 .controller('DashboardCtrl',['$scope', '$rootScope', 'customHttp', '$location', '$cookies', function ($scope, $root, customHttp, $location, $cookies){
 	console.log('DashboardCtrl');
+	console.log($cookies)
+	console.log('$cookies.get')
+	console.log($cookies.get('username'))
+	// if ($cookies.get('username')) {
+	// 	if (!window.localStorage.getItem('username')) {
+	// 		window.localStorage.setItem('username', $cookies.get('username'))
+	// 	}
+	// }
+
+
+	if (!$cookies.get('username') && !window.localStorage.getItem('username')) {
+		// if (!window.localStorage.getItem('username')) {
+		// 	window.localStorage.setItem('username', $cookies.get('username'))
+		// }
+		$location.path('/login');
+	}
+
+
+
+
+	if (!window.localStorage.getItem('username')) {
+		$location.path('/login');
+	}
 	$scope.loaded = false;
 	$scope.valid_data = false;
 	$scope.projectId = 58;
