@@ -48,7 +48,7 @@ angular.module('rajneethiApp')
 			if(data){
 				$scope.booths = data;
 				if (data.length) {
-				 	console.log(getAllCastes(data));
+					$scope.castes = getAllCastes(data)
 				 	console.log('$scope.castes')
 				 	console.log($scope.castes)
 					var map_data = [];
@@ -82,17 +82,21 @@ angular.module('rajneethiApp')
 		})
 	}
 
+
+
 	function getAllCastes(booths) {
-		$scope.castes = [];
+		var castes = [];
 		var data = booths[0].caste_equation_percentage.split("_");
 		data.forEach(function(item, index) {
 			if (!parseInt(item)) {
-				$scope.castes.push(item);
+				castes.push(item);
 			}
 		});
 		// console.log($scope.castes);
+		console.log('$scope.castes')
+		console.log($scope.castes)
 
-      return $scope.castes.map( function (state) {
+      return castes.map( function (state) {
         return {
           value: state.toLowerCase(),
           display: state

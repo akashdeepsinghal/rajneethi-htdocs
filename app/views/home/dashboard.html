@@ -2,7 +2,6 @@
 
 <section>
 	<div class="row" style="margin-bottom: 0; height: 70px; background-color: #f8f8f8;">
-		<!-- {{castes}} -->
 		<form name="filterBooths" id="filterbooths">
 			<div class="row">
 				<div class="input-field col s5">
@@ -19,18 +18,18 @@
 						match-class="highlight"/>
 				</div>
 				<div class="input-field col s5">
-<!-- 					<angucomplete-alt id="ac_caste"
+					<angucomplete-alt id="ac_caste"
 						placeholder="Select a caste"
 						pause="100"
 						selected-object="selectedCaste"
 						local-data="castes"
-						search-fields="caste"
-						title-field="caste"
+						search-fields="display"
+						title-field="display"
 						minlength="1"
 						input-class="form-control form-control-small"
-						match-class="highlight"/> -->
+						match-class="highlight"/>
 
-					<md-autocomplete
+<!-- 					<md-autocomplete
 						md-no-cache="true" 
 						md-selected-item="selectedCaste"
 						md-items="item in filterCastes(searchText)"
@@ -39,7 +38,7 @@
 						md-min-length="0"
 						placeholder="Select a caste">
 						<span>{{ item }}</span>
-					</md-autocomplete>
+					</md-autocomplete> -->
  
 <!-- 					<md-autocomplete
 						md-selected-item="selectedCaste"
