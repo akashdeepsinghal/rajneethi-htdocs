@@ -6,6 +6,40 @@ angular.module('rajneethiApp')
 }])
 .controller('LoginCtrl',['$scope', '$rootScope', 'customHttp', '$location', '$cookies', function ($scope, $root, customHttp, $location, $cookies){
 	console.log('LoginCtrl');
+
+	$scope.login = function () {
+		console.log('$scope.username')
+		console.log($scope.username)
+		console.log('$scope.password')
+		console.log($scope.password)
+		if (!$scope.username) {
+			Materialize.toast('Please enter username', 2000);
+			return;
+		}
+		if (!$scope.password) {
+			Materialize.toast('Please enter password', 2000);
+			return;
+		}
+		var userdetails = {
+			username: $scope.username,
+			password: $scope.password
+		}
+		var url = '/login';
+		customHttp.post(url, userdetails, function (response) {
+			$scope.loaded = true;
+			console.log('response');
+			console.log(response);
+			if(response){
+				if (response.token) {
+					response.message = 'User Logged in successfully';
+					$location.path('/dashboard');
+				}
+				Materialize.toast(response.message, 2000);
+			} else{
+				Materialize.toast(response.message, 2000);
+			}
+		})
+	}
 }])
 .controller('DashboardCtrl',['$scope', '$rootScope', 'customHttp', '$location', '$cookies', function ($scope, $root, customHttp, $location, $cookies){
 	console.log('DashboardCtrl');
@@ -166,6 +200,10 @@ angular.module('rajneethiApp')
 		console.log('pieData');
 		console.log(pieData);
 		return(pieData);
+	}
+
+	$scope.showchart = function () {
+		Materialize.toast('We will have the filtering soon', 2000);
 	}
 
 // $scope.searchQuery = function (searchText) {
