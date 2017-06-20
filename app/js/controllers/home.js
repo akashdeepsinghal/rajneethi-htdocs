@@ -12,6 +12,7 @@ angular.module('rajneethiApp')
 	$scope.loaded = false;
 	$scope.valid_data = false;
 	$scope.projectId = 58;
+	$scope.booths = [];
 
 	console.log('Roles controller');
 	loadConstituencyMap();
@@ -24,7 +25,9 @@ angular.module('rajneethiApp')
 			if(data){
 				$scope.booths = data;
 				if (data.length) {
-				 	// getAllCastes(data);
+				 	console.log(getAllCastes(data));
+				 	console.log('$scope.castes')
+				 	console.log($scope.castes)
 					var map_data = [];
 					var latlong = [];
 					// showPieChart(data[0]);
@@ -55,6 +58,67 @@ angular.module('rajneethiApp')
 			}
 		})
 	}
+
+	function getAllCastes(booths) {
+		$scope.castes = [];
+		var data = booths[0].caste_equation_percentage.split("_");
+		data.forEach(function(item, index) {
+			if (!parseInt(item)) {
+				$scope.castes.push(item);
+			}
+		});
+		// console.log($scope.castes);
+
+      return $scope.castes.map( function (state) {
+        return {
+          value: state.toLowerCase(),
+          display: state
+        };
+      });
+	}
+
+	function filterCastes (query) {
+		console.log('query')
+		console.log(query)
+		var results = query ? $scope.castes.filter( createFilterFor(query) ) : $scope.castes;
+		console.log();
+		return results;
+	}
+
+// $scope.searchQuery = function (searchText) {
+// 	var users = [];
+// 	angular.forEach($scope.users, function (value, key) {
+// 	value = user object // key = userId var dN = value["display_name"]; if (dN) { var obj = {}; obj[key] = value; obj["display"] = dN; if (dN.toLowerCase().indexOf(searchText.toLowerCase()) !== -1) { users.push(obj); } } }); return users; }
+
+	// console.log(loadAll())
+ //    function loadAll() {
+ //      var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
+ //              Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
+ //              Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana,\
+ //              Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina,\
+ //              North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina,\
+ //              South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia,\
+ //              Wisconsin, Wyoming';
+
+ //      return $scope.castes.map( function (state) {
+ //        return {
+ //          value: state.toLowerCase(),
+ //          display: state
+ //        };
+ //      });
+ //    }
+
+    /**
+     * Create filter function for a query string
+     */
+    function createFilterFor(query) {
+      var lowercaseQuery = angular.lowercase(query);
+
+      return function filterFn(state) {
+        return (state.value.indexOf(lowercaseQuery) === 0);
+      };
+
+    }
 
 	function initializeMap(map_data) {
 		var map;

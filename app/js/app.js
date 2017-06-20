@@ -1,6 +1,6 @@
 'use strict';
 
-var rajneethiApp = angular.module('rajneethiApp', ['ui.router', 'ngCookies', 'angucomplete-alt']);
+var rajneethiApp = angular.module('rajneethiApp', ['ui.router', 'ngCookies', 'ngMaterial', 'angucomplete-alt']);
 
 rajneethiApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider){
 	
