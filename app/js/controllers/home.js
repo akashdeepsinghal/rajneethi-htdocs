@@ -37,38 +37,6 @@ angular.module('rajneethiApp')
 		}
 	};
 
-
-		$scope.pieData = [
-		    {
-		        key: "One",
-		        y: 5
-		    },
-		    {
-		        key: "Two",
-		        y: 2
-		    },
-		    {
-		        key: "Three",
-		        y: 9
-		    },
-		    {
-		        key: "Four",
-		        y: 7
-		    },
-		    {
-		        key: "Five",
-		        y: 4
-		    },
-		    {
-		        key: "Six",
-		        y: 3
-		    },
-		    {
-		        key: "Seven",
-		        y: .5
-		    }
-		];
-
 	console.log('Roles controller');
 	loadConstituencyMap();
 	function loadConstituencyMap() {
@@ -85,7 +53,7 @@ angular.module('rajneethiApp')
 				 	console.log($scope.castes)
 					var map_data = [];
 					var latlong = [];
-					// showPieChart(data[0]);
+					showPieChart(data[0]);
 					console.log('data.length');
 					console.log(data.length);
 					for (var i = 0; i < data.length; i++) {
