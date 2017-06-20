@@ -3,6 +3,10 @@
 angular.module('rajneethiApp')
 .controller('HomeCtrl', ['$scope', '$rootScope', 'customHttp', 'docReady', '$location', '$cookies', function ($scope, $root, customHttp, docReady, $location, $cookies){
 	console.log('HomeCtrl');
+	if ($cookies.get('username')) {
+		$root.username = $cookies.get('username');
+		$location.path('/dashboard');
+	}
 }])
 .controller('LoginCtrl',['$scope', '$rootScope', 'customHttp', '$location', '$cookies', function ($scope, $root, customHttp, $location, $cookies){
 	console.log('LoginCtrl');
