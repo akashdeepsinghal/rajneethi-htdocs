@@ -14,6 +14,61 @@ angular.module('rajneethiApp')
 	$scope.projectId = 58;
 	$scope.booths = [];
 
+
+
+	$scope.pieOptions = {
+		chart: {
+			type: 'pieChart',
+			height: 500,
+			x: function(d){return d.key;},
+			y: function(d){return d.y;},
+			showLabels: true,
+			duration: 500,
+			labelThreshold: 0.01,
+			labelSunbeamLayout: true,
+			legend: {
+				margin: {
+					top: 5,
+					right: 20,
+					bottom: 5,
+					left: 0
+				}
+			}
+		}
+	};
+
+
+		$scope.pieData = [
+		    {
+		        key: "One",
+		        y: 5
+		    },
+		    {
+		        key: "Two",
+		        y: 2
+		    },
+		    {
+		        key: "Three",
+		        y: 9
+		    },
+		    {
+		        key: "Four",
+		        y: 7
+		    },
+		    {
+		        key: "Five",
+		        y: 4
+		    },
+		    {
+		        key: "Six",
+		        y: 3
+		    },
+		    {
+		        key: "Seven",
+		        y: .5
+		    }
+		];
+
 	console.log('Roles controller');
 	loadConstituencyMap();
 	function loadConstituencyMap() {
@@ -83,6 +138,62 @@ angular.module('rajneethiApp')
 		var results = query ? $scope.castes.filter( createFilterFor(query) ) : $scope.castes;
 		console.log();
 		return results;
+	}
+
+	function showPieChart(booth) {
+		console.log('getCastesAndPercentages(booth)');
+		console.log('booth')
+		console.log(booth)
+		console.log(getCastesAndPercentages(booth));
+		$scope.pieData = getCastesAndPercentages(booth);
+		console.log($scope.pieData)
+		console.log('$scope.pieData')
+	}
+
+	function getCastesAndPercentages(booth) {
+		var data = booth.caste_equation_percentage.split("_");
+		var d = [];
+		data.forEach(function(item, index) {
+			if (isOdd(index)) {
+				d.push(parseInt(item))
+			} else {
+				d.push(item)
+			}
+		});
+		console.log('d to be chunked')
+		console.log(d)
+		var result = object_chunk(d, 2);
+		return result;
+	}
+
+	function isOdd(n) {
+		return n % 2 != 0;
+	}
+
+	function chunk(arr, chunkSize) {
+		chunkSize = chunkSize || 2;
+		var R = [];
+		for (var i = 0, len = arr.length; i < len; i += chunkSize) {
+			R.push(arr.slice(i, i + chunkSize));
+		}
+		return R;
+	}
+
+	function object_chunk(arr) {
+		var pieData = [];
+		var chunkedArray = chunk(arr);
+		console.log('chunkedArray');
+		console.log(chunkedArray);
+
+		for (var i = 0; i < chunkedArray.length; i ++) {
+			pieData[i] = {
+				key: chunkedArray[i][0],
+				y: chunkedArray[i][1]
+			}
+		}
+		console.log('pieData');
+		console.log(pieData);
+		return(pieData);
 	}
 
 // $scope.searchQuery = function (searchText) {
